@@ -16,5 +16,7 @@ python train_boundary.py --model ResNet18_100 --name 'test' -o --num_search 5 --
 ## Performance evaluation
 
 Loss and average accuracy of train, validation and test are logged as csv file. Please check it in ./results 
-Also, the class-wise accuracy is saved in ./results at the epoch with the best validation performance
+
+Also, the class-wise accuracy is saved in ./results at the epoch with the best validation performance.
+
 By using this, one can ge the Q_25, Q_50 and Q_100 as we reported in the paper
