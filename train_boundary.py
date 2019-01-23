@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true',
                     help='resume from checkpoint')
-parser.add_argument('--model', default="ResNet18", type=str,
+parser.add_argument('--model', default="ResNet18_100", type=str,
                     help='model type (default: ResNet18)')
 parser.add_argument('--name', default='0', type=str, help='name of run')
 parser.add_argument('--seed', default=0, type=int, help='random seed')
@@ -49,7 +49,6 @@ parser.add_argument('--beta', default=0.01, type=float, help='a hyper-parameter 
 
 parser.add_argument('--over', '-o', action='store_true', help='oversampling')
 parser.add_argument('--smote', '-s', action='store_true', help='oversampling')
-parser.add_argument('--binary', '-binary', action='store_true', help='find a lambda with binary search')
 
 args = parser.parse_args()
 use_cuda = torch.cuda.is_available()
@@ -92,7 +91,7 @@ transform_test = transforms.Compose([
 # Imbalance
 num_class = 100
 num_samples = 500.0
-num_samples_per_class = make_imb_data(num_samples, args.num_min, num_class, args.gamma)
+num_samples_per_class = make_imb_data(num_samples, args.num_min, num_class, 1 / args.gamma)
 
 if args.over:
     trainloader, valiloader, testloader = data_loader.get_oversampling_cifar100(num_samples_per_class, False,
