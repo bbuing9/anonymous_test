@@ -34,6 +34,7 @@ python train_boundary.py -o --num_search 5 --beta 0.1 --num_min 25 --gamma 2.0
 ```
 ### 2. Evaluation
 
-Loss, accuracy for train, val and test sets are logged as csv files
+Loss, accuracy for train, val and test sets are logged as csv files.
+
 Also, the class-wise test accuracy is saved at the epoch with best val acc 
 
